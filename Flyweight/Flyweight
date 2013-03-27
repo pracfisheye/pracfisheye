@@ -1,0 +1,6 @@
+//Flyweight
+public interface LineFlyweight
+{
+	public Color getColor();
+	public void draw(Point location);
+}

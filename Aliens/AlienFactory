@@ -1,0 +1,14 @@
+public class AlienFactory
+{
+    private Dictionary<int,> list = new Dictionary<int,>();
+
+    public void SaveAlien(int index, IAlien alien)
+    {
+        list.Add(index, alien);
+    }
+
+    public IAlien GetAlien(int index)
+    {
+        return list[index];
+    }
+}

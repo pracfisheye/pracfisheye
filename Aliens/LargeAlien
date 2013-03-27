@@ -1,0 +1,19 @@
+public class LargeAlien : IAlien
+{
+    private string shape = "Large Shape";  //intrinsic state
+
+    string IAlien.Shape
+    {
+        get { return shape; }
+    }
+
+    Color IAlien.GetColor(int madLevel)   //extrinsic state
+    {
+        if (madLevel == 0)
+            return Color.Green;
+        else if (madLevel == 1)
+            return Color.Red;
+        else
+            return Color.Blue;
+    }
+}

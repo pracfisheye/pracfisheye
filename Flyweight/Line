@@ -18,10 +18,13 @@ public class Line implements LineFlyweight
 		//draw the character on screen
 	}
 
-	public void drawPointer(Point location)
+	public void drawTroll(Point location)
 	{
 		//draw one pointer on screen
 	}
 
+	public void random(int n){
+
+	}
 
 }

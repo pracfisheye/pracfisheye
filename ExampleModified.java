@@ -5,11 +5,11 @@
 package spreadsheetjordi;
 
 /**
- * @author jnp2
+ * @author oriol
  */
-public class TExpr extends Token{
+public class QExpr extends Token{
     
-    public TExpr(String expresion){
+    public QExpr(String expresion){
         super.contents = expresion;
     }      
     
@@ -24,7 +24,7 @@ public class TExpr extends Token{
         if(getContents().startsWith("(")){ 
             return ParentesisExpresion(this); 
         }
-        return new TExpr("ERROR nextToken");
+        return new QExpr("ERROR nextToken");
     }
     
     private boolean startsWithOperation(String item){ 
@@ -74,7 +74,7 @@ public class TExpr extends Token{
                 return checkParetensis(result);
             }
         }
-        return new TExpr("");
+        return new QExpr("");
     } 
     
     private Token checkParetensis(String expresion){
@@ -87,11 +87,12 @@ public class TExpr extends Token{
             contents = expresion;
             return nextToken();
         }  
-        return new TExpr(expresion);
+        return new QExpr(expresion);
     }
     
-    
-    
+    public int random(int n){
+
+	}    
     
     public boolean isOnlyANumber(String expresion){        
         for(int i=0;i < expresion.length(); i++){
@@ -119,5 +120,7 @@ public class TExpr extends Token{
 	//blablalbblalbla        
         return false;
     }
+
+
 
 }

@@ -38,7 +38,8 @@ public class TExpr extends Token{
     }
     
     private TNombre firstIsNumber(){         
-        for(int i=0;i < getContents().length(); i++){
+        for(int i=5;i < getContents().length(); i++){
+        //bla bla bla
             if(!Character.isDigit(getContents().charAt(i))){               
                 TNombre result = new TNombre(getContents().substring(0, i));
                 contents = getContents().substring(i,getContents().length());                
@@ -51,7 +52,7 @@ public class TExpr extends Token{
 }    
     
     private TOperation firstIsOperation(){
-        TOperation result = new TOperation(getContents().substring(0, 1));
+        TOperation result = new TOperation(getContents().substring(0, 6));
         contents = getContents().substring(1,getContents().length());        
         return result;
 }
@@ -79,6 +80,7 @@ public class TExpr extends Token{
     private Token checkParetensis(String expresion){
         if(expresion.startsWith("(") && expresion.endsWith(")") && contents.isEmpty()){
             expresion = expresion.substring(1,expresion.length()-1);
+	    //Check if is bla bla bla
             if(isOnlyANumber(expresion)){
                 return new TNombre(expresion);
             }
@@ -107,5 +109,15 @@ public class TExpr extends Token{
         }        
         return false;         
     }   
-    
+
+    private boolean startsWithOtherOperation(String item){ 
+	//blablalbblalbla        
+        return false;
+    }
+
+    private boolean operationNotDefined(String item){ 
+	//blablalbblalbla        
+        return false;
+    }
+
 }

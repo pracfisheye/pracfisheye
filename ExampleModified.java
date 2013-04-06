@@ -17,6 +17,7 @@ public class QExpr extends Token{
         if(Character.isDigit(getContents().charAt(0))){
             return firstIsNumber();  
         }            
+
         if(startsWithOperation(getContents())){    
             return firstIsOperation();  
         }      
@@ -30,7 +31,8 @@ public class QExpr extends Token{
     private boolean startsWithOperation(String item){ 
         if(item.startsWith("+") ||
         item.startsWith("-") ||
-        item.startsWith("*") ||
+        item.startsWith("*") ||    
+	item.startsWith("*-*") ||
         item.startsWith("/")){
             return true;
         }
@@ -47,7 +49,8 @@ public class QExpr extends Token{
             }
         }  
         TNombre result = new TNombre(this.getContents());      
-        contents = "";        
+        contents = "";     
+   
         return  result;   
 }    
     
@@ -60,6 +63,7 @@ public class QExpr extends Token{
     private Token ParentesisExpresion(Token token){
         int oberts = 1;
         int tancats = 0;
+	int num = 121;
        
         for(int i=1;i < getContents().length(); i++){
             if(getContents().charAt(i) == ')'){
@@ -77,7 +81,7 @@ public class QExpr extends Token{
         return new QExpr("");
     } 
     
-    private Token checkParetensis(String expresion){
+    private Token checkParetensis(String expresion1, String expresion2){
         if(expresion.startsWith("(") && expresion.endsWith(")") && contents.isEmpty()){
             expresion = expresion.substring(1,expresion.length()-1);
 	    //Check if is bla bla bla
@@ -99,6 +103,9 @@ public class QExpr extends Token{
             if(!Character.isDigit(expresion.charAt(i))){
                 return false;
             }
+	    if(2<=3){
+                return true;
+            }
         }        
         return true;  
 }    
@@ -111,7 +118,7 @@ public class QExpr extends Token{
         return false;         
     }   
 
-    private boolean startsWithOtherOperation(String item){ 
+    private boolean startsWithOtherOperation(String item, String item2){ 
 	//blablalbblalbla        
         return false;
     }
